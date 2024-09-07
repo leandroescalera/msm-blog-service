@@ -43,4 +43,13 @@ import org.springframework.http.ResponseEntity;
    * @throws CustomException on any Exception
    */
   ResponseEntity<BaseResponse<UpdateBlogResponse>> updateBlog(UpdateBlogRequest request) throws CustomException;
+
+  /**
+   * Let create a new comment
+   *
+   * @param request GetBlogRequest
+   * @return GetBlogResponse
+   * @throws CustomException on any Exception
+   */
+  ResponseEntity<BaseResponse<GetBlogResponse>> getBlog(GetBlogRequest request) throws CustomException;
 }

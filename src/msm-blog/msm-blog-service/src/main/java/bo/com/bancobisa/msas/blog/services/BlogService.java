@@ -8,10 +8,7 @@ import bo.com.bancobisa.msas.blog.repositories.AuthorRepository;
 import bo.com.bancobisa.msas.blog.repositories.BlogHistoryRepository;
 import bo.com.bancobisa.msas.blog.repositories.BlogRepository;
 import bo.com.bancobisa.msas.blog.repositories.CommentRepository;
-import bo.com.bancobisa.msas.blog.services.mapper.CreateAuthorMapper;
-import bo.com.bancobisa.msas.blog.services.mapper.CreateBlogMapper;
-import bo.com.bancobisa.msas.blog.services.mapper.CreateCommentMapper;
-import bo.com.bancobisa.msas.blog.services.mapper.UpdateBlogMapper;
+import bo.com.bancobisa.msas.blog.services.mapper.*;
 import bo.com.bancobisa.msm.blog.api.*;
 import bo.com.bancofie.msas.common.config.CustomException;
 import bo.com.bancofie.msas.common.data.BaseResponse;
@@ -23,8 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.sql.Date;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author leandro.escalera
@@ -71,11 +68,11 @@ public class BlogService implements IBlogApi, CommonResponse {
   @Override
   public ResponseEntity<BaseResponse<CreateCommentResponse>> createComment(CreateCommentRequest request) throws CustomException {
     CommentEntity commentEntity = CreateCommentMapper.mapperToCommentEntity(request);
-    BlogEntity blogEntity =  blogRepository.findBlogById(request.getBlogId());
-    if (blogEntity==null){
+    BlogEntity blogEntity = blogRepository.findBlogById(request.getBlogId());
+    if (blogEntity == null) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El Blog no fue encontrado.");
     }
-    if (blogEntity.getAllowComments()!=true){
+    if (blogEntity.getAllowComments() != true) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puede comentar, el autor puso en privado el blog.");
     }
     commentEntity.setBlogId(blogEntity);
@@ -87,18 +84,59 @@ public class BlogService implements IBlogApi, CommonResponse {
 
   @Override
   public ResponseEntity<BaseResponse<UpdateBlogResponse>> updateBlog(UpdateBlogRequest request) throws CustomException {
-    BlogEntity blogEntity =  blogRepository.findBlogById(request.getId());
-    if (blogEntity==null){
+    BlogEntity blogEntity = blogRepository.findBlogById(request.getId());
+    if (blogEntity == null) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No existe el blog.");
     }
     AuthorEntity authorEntity = authorRepository.findAuthorById(blogEntity.getAuthorId().getId());
-    blogEntity = UpdateBlogMapper.mapperToBlogEntity(request,authorEntity);
-    BlogHistoryEntity blogHistoryEntity = UpdateBlogMapper.mapperToBlogHistoryEntity(blogEntity,authorEntity);
+    blogEntity = UpdateBlogMapper.mapperToBlogEntity(request, authorEntity);
+    BlogHistoryEntity blogHistoryEntity = UpdateBlogMapper.mapperToBlogHistoryEntity(blogEntity, authorEntity);
     blogHistoryRepository.save(blogHistoryEntity);
     blogRepository.save(blogEntity);
     UpdateBlogResponse response = UpdateBlogMapper.mapperToCreateCommentResponse(blogEntity);
     return ok(new BaseResponse().setResult(response));
   }
 
-
+  @Override
+  public ResponseEntity<BaseResponse<GetBlogResponse>> getBlog(GetBlogRequest request) throws CustomException {
+    if (request.getId() != 0) {
+      GetBlogResponse response = new GetBlogResponse();
+      BlogEntity blogEntity = blogRepository.findBlogById(request.getId());
+      if (blogEntity == null) {
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No existe el blog.");
+      }
+      AuthorEntity authorEntity = authorRepository.findAuthorById(blogEntity.getAuthorId().getId());
+      Author author = GetBlogMapper.mapperToAuthor(authorEntity);
+      Blog blog = GetBlogMapper.mapperToBlog(blogEntity);
+      blog.setAuthorId(blogEntity.getAuthorId().getId());
+      List<Blog> blogs = new ArrayList<>();
+      List<CommentEntity> commentEntities = commentRepository.findAllCommentsByBlogId(blogEntity.getId());
+      List<Comment> commentList = GetBlogMapper.mapperToComment(commentEntities);
+      blogs.add(blog.setCommentList(commentList));
+      response.setAuthor(author);
+      response.setBlogList(blogs);
+      return ok(new BaseResponse().setResult(response));
+    } else {
+      ListGetBlogResponse response = new ListGetBlogResponse();
+      List<GetBlogResponse> responses = new ArrayList<>();
+      List<AuthorEntity> authorEntities = authorRepository.findAllAuthor();
+      for (AuthorEntity authorEntity :authorEntities) {
+        List<BlogEntity> blogEntities = blogRepository.findAllBlogsByAuthorId(authorEntity.getId());
+        Author author = GetBlogMapper.mapperToAuthor(authorEntity);
+        GetBlogResponse object = GetBlogMapper.mapperToGetBlogResponse(blogEntities);
+        List<Blog> list = new ArrayList<>();
+        for (Blog blog :object.getBlogList()){
+          List<CommentEntity> commentEntities = commentRepository.findAllCommentsByBlogId(blog.getId());
+          List<Comment> commentList = GetBlogMapper.mapperToComment(commentEntities);
+          blog.setCommentList(commentList);
+          list.add(blog);
+        }
+        object.setAuthor(author);
+        object.setBlogList(list);
+        responses.add(object);
+      }
+      response.setGetBlogResponseList(responses);
+      return ok(new BaseResponse().setResult(response));
+    }
+  }
 }

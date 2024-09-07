@@ -51,4 +51,10 @@ public class BlogController {
     return api.updateBlog(request);
   }
 
+  @PostMapping("/getBlog")
+  @Operation(summary = "Obtener blogs.", description = "Este endpoint permite obtener blogs.", tags = {"Blog"})
+  public ResponseEntity<BaseResponse<GetBlogResponse>> getBlog(@RequestBody @Valid GetBlogRequest request) throws CustomException {
+    return api.getBlog(request);
+  }
+
 }
