@@ -4,10 +4,8 @@ import bo.com.bancobisa.msas.blog.entities.AuthorEntity;
 import bo.com.bancobisa.msas.blog.entities.BlogEntity;
 import bo.com.bancobisa.msas.blog.entities.CommentEntity;
 import bo.com.bancobisa.msm.blog.api.*;
-import bo.com.bancofie.msas.common.persist.data.PageData;
 import org.springframework.beans.BeanUtils;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
