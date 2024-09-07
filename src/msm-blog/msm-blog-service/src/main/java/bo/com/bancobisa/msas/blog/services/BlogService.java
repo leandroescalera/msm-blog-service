@@ -1,5 +1,6 @@
 package bo.com.bancobisa.msas.blog.services;
 
+import bo.com.bancobisa.msas.blog.config.BlogConstants;
 import bo.com.bancobisa.msas.blog.entities.AuthorEntity;
 import bo.com.bancobisa.msas.blog.entities.BlogEntity;
 import bo.com.bancobisa.msas.blog.entities.BlogHistoryEntity;
