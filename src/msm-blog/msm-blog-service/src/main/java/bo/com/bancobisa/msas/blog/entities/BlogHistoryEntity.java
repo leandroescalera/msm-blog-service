@@ -34,7 +34,7 @@ public class BlogHistoryEntity {
   private Date updateDate;
   @Basic
   @Column(name = "allow_comments")
-  private String allowComments;
+  private Boolean allowComments;
   @ManyToOne
   @JoinColumn(name = "blog_id")
   private BlogEntity blogId;

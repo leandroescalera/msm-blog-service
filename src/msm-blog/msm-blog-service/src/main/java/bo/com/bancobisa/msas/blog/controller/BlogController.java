@@ -45,4 +45,10 @@ public class BlogController {
     return api.createComment(request);
   }
 
+  @PostMapping("/updateBlog")
+  @Operation(summary = "Actualizar blogs.", description = "Este endpoint permite actualizar blogs.", tags = {"Blog"})
+  public ResponseEntity<BaseResponse<UpdateBlogResponse>> updateBlog(@RequestBody @Valid UpdateBlogRequest request) throws CustomException {
+    return api.updateBlog(request);
+  }
+
 }

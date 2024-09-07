@@ -25,9 +25,9 @@ CREATE TABLE comment (
 
 CREATE TABLE blog_history (
     id BIGINT IDENTITY NOT NULL,
-    content_above VARCHAR,
+    content_above VARCHAR(250),
     update_date DATETIME,
-    allow_comments VARCHAR,
+    allow_comments BIT,
     author_id BIGINT,
     blog_id BIGINT,
     PRIMARY KEY (id)

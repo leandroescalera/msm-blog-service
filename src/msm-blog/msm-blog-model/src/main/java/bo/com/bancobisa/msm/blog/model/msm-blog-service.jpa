@@ -223,7 +223,7 @@
                 <xm/>
                 <column name="update_date" unique="false" nullable="true" insertable="true" updatable="true"/>
             </basic>
-            <basic attribute-type="String" v="true" xvt="" name="allowComments" id="_172568401049973">
+            <basic attribute-type="Boolean" v="true" xvt="" name="allowComments" id="_172568401049973">
                 <xwm/>
                 <xm/>
                 <column name="allow_comments" unique="false" nullable="true" insertable="true" updatable="true"/>

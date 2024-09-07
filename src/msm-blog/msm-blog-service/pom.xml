@@ -64,7 +64,6 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.15</version> <!-- O la última versión disponible -->
 		</dependency>
-
 	</dependencies>
 
 	<build>
