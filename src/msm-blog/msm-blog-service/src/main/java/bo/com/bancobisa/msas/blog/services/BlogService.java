@@ -112,7 +112,11 @@ public class BlogService implements IBlogApi, CommonResponse {
       List<Blog> blogs = new ArrayList<>();
       List<CommentEntity> commentEntities = commentRepository.findAllCommentsByBlogId(blogEntity.getId());
       List<Comment> commentList = GetBlogMapper.mapperToComment(commentEntities);
-      blogs.add(blog.setCommentList(commentList));
+      Comment comment = commentList.stream().findFirst().orElse(null);
+      Double max = commentRepository.findMaxScoreByBlogId(comment.getBlogId());
+      Double min = commentRepository.findMinScoreByBlogId(comment.getBlogId());
+      Double avg = commentRepository.findAvgScoreByBlogId(comment.getBlogId());
+      blogs.add(blog.setCommentList(commentList).setMax(max).setMin(min).setAverage(avg));
       response.setAuthor(author);
       response.setBlogList(blogs);
       return ok(new BaseResponse().setResult(response));
@@ -120,15 +124,25 @@ public class BlogService implements IBlogApi, CommonResponse {
       ListGetBlogResponse response = new ListGetBlogResponse();
       List<GetBlogResponse> responses = new ArrayList<>();
       List<AuthorEntity> authorEntities = authorRepository.findAllAuthor();
-      for (AuthorEntity authorEntity :authorEntities) {
+      for (AuthorEntity authorEntity : authorEntities) {
         List<BlogEntity> blogEntities = blogRepository.findAllBlogsByAuthorId(authorEntity.getId());
         Author author = GetBlogMapper.mapperToAuthor(authorEntity);
         GetBlogResponse object = GetBlogMapper.mapperToGetBlogResponse(blogEntities);
         List<Blog> list = new ArrayList<>();
-        for (Blog blog :object.getBlogList()){
+        for (Blog blog : object.getBlogList()) {
           List<CommentEntity> commentEntities = commentRepository.findAllCommentsByBlogId(blog.getId());
           List<Comment> commentList = GetBlogMapper.mapperToComment(commentEntities);
+          Double max = 0d;
+          Double min = 0d;
+          Double avg = 0d;
+
+          for (Comment comment : commentList) {
+            max = commentRepository.findMaxScoreByBlogId(comment.getBlogId());
+            min = commentRepository.findMinScoreByBlogId(comment.getBlogId());
+            avg = commentRepository.findAvgScoreByBlogId(comment.getBlogId());
+          }
           blog.setCommentList(commentList);
+          blog.setMax(max).setMin(min).setAverage(avg);
           list.add(blog);
         }
         object.setAuthor(author);

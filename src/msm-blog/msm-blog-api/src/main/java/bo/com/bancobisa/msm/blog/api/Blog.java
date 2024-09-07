@@ -48,6 +48,15 @@ public class Blog implements Serializable {
   @Schema(description = "Identificador unico del autor.", example = "1")
   private Long authorId;
 
+  @Schema(description = "Maximo de puntuacion.", example = "1")
+  private Double max;
+
+  @Schema(description = "Minimo de puntuacion.", example = "10")
+  private Double min;
+
+  @Schema(description = "Promedio de puntuacion", example = "15")
+  private Double average;
+
   @Schema(description = "Lista de comentarios del blog.")
   private List<Comment> commentList;
 }

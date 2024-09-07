@@ -17,7 +17,7 @@ CREATE TABLE comment (
     mail VARCHAR(250),
     country_residence VARCHAR(100),
     content VARCHAR(250),
-    score VARCHAR(50),
+    score INTEGER,
     creation_date DATETIME,
     blog_id BIGINT,
     PRIMARY KEY (id)

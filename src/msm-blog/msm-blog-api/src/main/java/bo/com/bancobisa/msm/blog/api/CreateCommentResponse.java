@@ -37,7 +37,7 @@ public class CreateCommentResponse  implements Serializable {
   private String content;
 
   @Schema(description = "Puntaje de la publicacion del blog.", example = "10")
-  private String score;
+  private Integer score;
 
   @Schema(description = "Fecha de creacion de la publicacion.", example = "08/10/1991")
   private Date creationDate;

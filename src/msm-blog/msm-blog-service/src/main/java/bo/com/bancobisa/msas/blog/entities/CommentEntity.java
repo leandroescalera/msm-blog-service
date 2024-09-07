@@ -40,8 +40,8 @@ public class CommentEntity {
   @Column(name = "content", length = 250)
   private String content;
   @Basic
-  @Column(name = "score", length = 50)
-  private String score;
+  @Column(name = "score")
+  private Integer score;
   @Basic
   @Column(name = "creation_date")
   private Date creationDate;

@@ -19,4 +19,5 @@ public interface BlogRepository extends JpaRepository<BlogEntity,Long> {
 
   @Query("select b from BlogEntity b where b.authorId.id = :id ")
   List<BlogEntity> findAllBlogsByAuthorId(@Param("id") Long id);
+
 }

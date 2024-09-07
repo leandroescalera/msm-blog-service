@@ -47,6 +47,7 @@ public final class GetBlogMapper {
     Comment to = new Comment();
     BeanUtils.copyProperties(from, to);
     to.setBlogId(from.getBlogId().getId());
+    to.setScore(String.valueOf(from.getScore()));
     return to;
   }
 

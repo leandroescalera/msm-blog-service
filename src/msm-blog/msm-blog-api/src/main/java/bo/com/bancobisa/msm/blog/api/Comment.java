@@ -44,4 +44,8 @@ public class Comment implements Serializable {
 
   @Schema(description = "Identificador unico", example = "1")
   private Long blogId;
+
+
+
+
 }

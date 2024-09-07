@@ -16,6 +16,7 @@ public final class CreateCommentMapper {
     CommentEntity to = new CommentEntity();
     BeanUtils.copyProperties(from, to);
     to.setCreationDate(Date.valueOf(from.getCreationDate()));
+    to.setScore(Integer.valueOf(from.getScore()));
     return to;
   }
 
