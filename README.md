@@ -1,4 +1,3 @@
-
 # msm-blog-service
 
 Este repositorio fue creado para gestionar una plataforma de blog, permitiendo la creación, edición, y visualización de posts de usuarios.
@@ -21,7 +20,7 @@ Para compilar y ejecutar la aplicación, se necesita:
 - JDK 1.8 o superior
 - Maven 3.6+
 - Spring Boot 2.5.6
-- Base de datos relacional (por ejemplo, MySQL, PostgreSQL)
+- Base de datos relacional SQL Server
   
 ## Instalación
 
