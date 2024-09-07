@@ -27,7 +27,7 @@ Para compilar y ejecutar la aplicación, se necesita:
 1. Clona el repositorio:
 
     ```bash
-    git clone https://github.com/usuario/msm-blog-service.git
+    git clone https://github.com/leandroescalera/msm-blog-service.git
     ```
 
 2. Navega al directorio del proyecto:
@@ -52,27 +52,35 @@ Para compilar y ejecutar la aplicación, se necesita:
 
 Una vez que el servicio esté en funcionamiento, puedes acceder a los endpoints RESTful para gestionar el contenido del blog. A continuación, se muestra un ejemplo básico de interacción:
 
-- **Crear un post**: 
+- **Crear un autor**: 
   ```http
-  POST /api/v1/posts
+  POST /evaluation/blog/api/v1.0/createAuthor
   ```
-- **Obtener todos los posts**:
+- **Crea blogs**:
   ```http
-  GET /api/v1/posts
+  POST /evaluation/blog/api/v1.0/createBlog
+  ```
+- **Crea comentarios**:
+  ```http
+  POST /evaluation/blog/api/v1.0/createComment
+  ```
+- **Actualiza blogs**:
+  ```http
+  POST /evaluation/blog/api/v1.0/updateBlog
+  ```
+- **Obtiene los blogs por id**:
+  ```http
+  POST /evaluation/blog/api/v1.0/getBlog
   ```
 
-## Servicios Relacionados
-
-- **msm-user-service**: Gestión de usuarios.
-- **msm-notification-service**: Manejo de notificaciones para los usuarios.
   
 ## Clientes
 
-Este proyecto es utilizado por el cliente **Ultra** para la creación y gestión de contenido.
+Este proyecto sera utilizado para la gestion de un portal de blogs en la creación y gestión de contenido.
 
 ## Autores
 
-- **Leandro Escalera** - leandro.escalera@ejemplo.com
+- **Leandro Escalera** - marcelo.escalera.inf@gmail.com
 
 ## Contribuciones
 

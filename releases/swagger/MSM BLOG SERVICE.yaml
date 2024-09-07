@@ -1,0 +1,649 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080/evaluation/blog/api/v1.0
+    description: Generated server url
+paths:
+  /updateBlog:
+    post:
+      tags:
+        - Blog
+      summary: Actualizar blogs.
+      description: Este endpoint permite actualizar blogs.
+      operationId: updateBlog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateBlogRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseUpdateBlogResponse'
+  /getBlog:
+    post:
+      tags:
+        - Blog
+      summary: Obtener blogs.
+      description: Este endpoint permite obtener blogs.
+      operationId: getBlog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetBlogRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseGetBlogResponse'
+  /createComment:
+    post:
+      tags:
+        - Blog
+      summary: Crea comentario.
+      description: Este endpoint permite crear comentarios a publicaciones de autores.
+      operationId: createComment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseCreateCommentResponse'
+  /createBlog:
+    post:
+      tags:
+        - Blog
+      summary: Crea blogs.
+      description: Este endpoint permite crear blogs.
+      operationId: createBlog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBlogRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseCreateBlogResponse'
+  /createAuthor:
+    post:
+      tags:
+        - Autor
+      summary: Crea autores.
+      description: Este endpoint permite crear autores.
+      operationId: createAuthor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAuthorRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseCreateAuthorResponse'
+components:
+  schemas:
+    UpdateBlogRequest:
+      required:
+        - content
+        - periodicity
+        - theme
+        - title
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        title:
+          pattern: ^[a-zA-ZÀ-ÿ0-9,\.\-\s¡!¿?]+$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        theme:
+          pattern: ^[a-zA-ZÀ-ÿ0-9,\.\-\s!¡?¿()_&+*'"/:;@]+$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        content:
+          pattern: ^[\s\S]*$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        periodicity:
+          pattern: ^(DIARIA|SEMANAL|MENSUAL)$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        allowComments:
+          type: boolean
+          description: Titulo del Blog
+          example: false
+        creationDate:
+          type: string
+          description: Fecha de creacion de blog.
+          format: date
+        updateDate:
+          type: string
+          description: Fecha de actualizacion del blog.
+          format: date
+      description: Solicitud para actualizar un blog.
+    BaseResponseUpdateBlogResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        result:
+          $ref: '#/components/schemas/UpdateBlogResponse'
+        timestamp:
+          type: string
+          format: date-time
+    UpdateBlogResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        title:
+          type: string
+          description: Titulo del blog.
+          example: Mi primera publicacion.
+        theme:
+          type: string
+          description: Tema del blog.
+          example: Asi debio ser.
+        content:
+          type: string
+          description: Contenido de la publicacion.
+          example: Este mi primera publicacoin ........
+        periodicity:
+          type: string
+          description: Perioodo de publicacion
+          example: SEMANAL
+        allowComments:
+          type: boolean
+          description: Estado de verificacion de publicacion.
+          example: true
+        creationDate:
+          type: string
+          description: Fecha de creacion del blog
+          format: date-time
+        updateDate:
+          type: string
+          description: Fecha de actualizacion del blog,
+          format: date-time
+        authorId:
+          type: integer
+          description: Identificador unico del autor.
+          format: int64
+          example: 1
+      description: Respuesta para la solicitud para actualizar un blog.
+    GetBlogRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico de blog
+          format: int64
+          example: 1
+      description: Solicitud para obtener blogs.
+    Author:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        names:
+          type: string
+          description: Nombres del Autor
+          example: Leandro Marcelo
+        firstSurname:
+          type: string
+          description: Nombres del Autor
+          example: Escalera
+        secondSurname:
+          type: string
+          description: second_surname
+          example: Alconini
+        birthDate:
+          type: string
+          description: Fecha de nacimiento.
+          format: date-time
+        countryResidence:
+          type: string
+          description: country_residence
+          example: Bolivia
+        mail:
+          type: string
+          description: mail
+          example: marcelo.escalera.inf@gmail.com
+      description: Objeto blog.
+    BaseResponseGetBlogResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        result:
+          $ref: '#/components/schemas/GetBlogResponse'
+        timestamp:
+          type: string
+          format: date-time
+    Blog:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        title:
+          type: string
+          description: Titulo del blog.
+          example: Mi primera publicacion.
+        theme:
+          type: string
+          description: Tema del blog.
+          example: Asi debio ser.
+        content:
+          type: string
+          description: Contenido de la publicacion.
+          example: Este mi primera publicacoin ........
+        periodicity:
+          type: string
+          description: Perioodo de publicacion
+          example: SEMANAL
+        allowComments:
+          type: boolean
+          description: Estado de verificacion de publicacion.
+          example: true
+        creationDate:
+          type: string
+          description: Fecha de creacion del blog
+          format: date-time
+        updateDate:
+          type: string
+          description: Fecha de actualizacion del blog,
+          format: date-time
+        authorId:
+          type: integer
+          description: Identificador unico del autor.
+          format: int64
+          example: 1
+        max:
+          type: number
+          description: Maximo de puntuacion.
+          format: double
+          example: 1
+        min:
+          type: number
+          description: Minimo de puntuacion.
+          format: double
+          example: 10
+        average:
+          type: number
+          description: Promedio de puntuacion
+          format: double
+          example: 15
+        commentList:
+          type: array
+          description: Lista de comentarios del blog.
+          items:
+            $ref: '#/components/schemas/Comment'
+      description: Objeto blog.
+    Comment:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        names:
+          type: string
+          description: Nombres del Autor
+          example: Leandro Marcelo
+        mail:
+          type: string
+          description: mail
+          example: marcelo.escalera.inf@gmail.com
+        countryResidence:
+          type: string
+          description: country_residence
+          example: Bolivia
+        content:
+          type: string
+          description: Contenido de la publicacion.
+          example: Este mi primera publicacoin ........
+        score:
+          type: string
+          description: Puntaje de la publicacion del blog.
+          example: '10'
+        creationDate:
+          type: string
+          description: Fecha de creacion de la publicacion.
+          format: date-time
+        blogId:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+      description: Objeto Comentario.
+    GetBlogResponse:
+      type: object
+      properties:
+        author:
+          $ref: '#/components/schemas/Author'
+        blogList:
+          type: array
+          description: Lista de blogs.
+          items:
+            $ref: '#/components/schemas/Blog'
+      description: Respuesta a la solicitud para obtener blogs.
+    CreateCommentRequest:
+      required:
+        - content
+        - countryResidence
+        - mail
+        - names
+        - score
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        names:
+          pattern: ^[a-zA-ZÀ-ÿ\s]+$
+          type: string
+          description: Nombres del Autor
+          example: Leandro Marcelo
+        mail:
+          pattern: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$
+          type: string
+          description: mail
+          example: marcelo.escalera.inf@gmail.com
+        countryResidence:
+          pattern: ^[a-zA-ZÀ-ÿ\s]+$
+          type: string
+          description: country_residence
+          example: Bolivia
+        content:
+          pattern: ^[\s\S]*$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        score:
+          pattern: ^(?:10|[0-9])$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        creationDate:
+          type: string
+          description: Fecha de creacion del comentario
+          format: date
+        blogId:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+      description: Solicitud para crear comentarios en una publicacion.
+    BaseResponseCreateCommentResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        result:
+          $ref: '#/components/schemas/CreateCommentResponse'
+        timestamp:
+          type: string
+          format: date-time
+    CreateCommentResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        names:
+          type: string
+          description: Nombres del Autor
+          example: Leandro Marcelo
+        mail:
+          type: string
+          description: mail
+          example: marcelo.escalera.inf@gmail.com
+        countryResidence:
+          type: string
+          description: country_residence
+          example: Bolivia
+        content:
+          type: string
+          description: Contenido de la publicacion.
+          example: Este mi primera publicacoin ........
+        score:
+          type: integer
+          description: Puntaje de la publicacion del blog.
+          format: int32
+          example: 10
+        creationDate:
+          type: string
+          description: Fecha de creacion de la publicacion.
+          format: date-time
+        blogId:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+      description: Respuesta de una solicitud para crear comentarios en una publicacion.
+    CreateBlogRequest:
+      required:
+        - content
+        - periodicity
+        - theme
+        - title
+      type: object
+      properties:
+        authorId:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        title:
+          pattern: ^[a-zA-ZÀ-ÿ0-9,\.\-\s¡!¿?]+$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        theme:
+          pattern: ^[a-zA-ZÀ-ÿ0-9,\.\-\s!¡?¿()_&+*'"/:;@]+$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        content:
+          pattern: ^[\s\S]*$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        periodicity:
+          pattern: ^(DIARIA|SEMANAL|MENSUAL)$
+          type: string
+          description: Titulo del Blog
+          example: Mi primera publicacion
+        allowComments:
+          type: boolean
+          description: Titulo del Blog
+          example: false
+        creationDate:
+          type: string
+          description: Fecha de creacion de blog.
+          format: date
+        updateDate:
+          type: string
+          description: Fecha de actualizacion del blog.
+          format: date
+      description: Solicitud para crear blogs.
+    BaseResponseCreateBlogResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        result:
+          $ref: '#/components/schemas/CreateBlogResponse'
+        timestamp:
+          type: string
+          format: date-time
+    CreateBlogResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        title:
+          type: string
+          description: Titulo del blog.
+          example: Mi primera publicacion.
+        theme:
+          type: string
+          description: Tema del blog.
+          example: Asi debio ser.
+        content:
+          type: string
+          description: Contenido de la publicacion.
+          example: Este mi primera publicacoin ........
+        periodicity:
+          type: string
+          description: Perioodo de publicacion
+          example: SEMANAL
+        allowComments:
+          type: boolean
+          description: Estado de verificacion de publicacion.
+          example: true
+        creationDate:
+          type: string
+          description: Fecha de creacion del blog
+          format: date-time
+        updateDate:
+          type: string
+          description: Fecha de actualizacion del blog,
+          format: date-time
+        authorId:
+          type: integer
+          description: Identificador unico del autor.
+          format: int64
+          example: 1
+      description: Respuesta a la solicitud para crear blogs.
+    CreateAuthorRequest:
+      required:
+        - countryResidence
+        - firstSurname
+        - mail
+        - names
+        - secondSurname
+      type: object
+      properties:
+        names:
+          pattern: ^[a-zA-ZÀ-ÿ\s]+$
+          type: string
+          description: Nombres del Autor
+          example: Leandro Marcelo
+        firstSurname:
+          pattern: ^[a-zA-ZÀ-ÿ\s]+$
+          type: string
+          description: Nombres del Autor
+          example: Escalera
+        secondSurname:
+          pattern: ^[a-zA-ZÀ-ÿ\s]+$
+          type: string
+          description: second_surname
+          example: Alconini
+        birthDate:
+          type: string
+          description: Fecha de nacimiento
+          format: date
+        countryResidence:
+          pattern: ^[a-zA-ZÀ-ÿ\s]+$
+          type: string
+          description: country_residence
+          example: Bolivia
+        mail:
+          pattern: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$
+          type: string
+          description: mail
+          example: marcelo.escalera.inf@gmail.com
+      description: Solicitud para crear autor.
+    BaseResponseCreateAuthorResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        result:
+          $ref: '#/components/schemas/CreateAuthorResponse'
+        timestamp:
+          type: string
+          format: date-time
+    CreateAuthorResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador unico
+          format: int64
+          example: 1
+        names:
+          type: string
+          description: Nombres del Autor
+          example: Leandro Marcelo
+        firstSurname:
+          type: string
+          description: Nombres del Autor
+          example: Escalera
+        secondSurname:
+          type: string
+          description: second_surname
+          example: Alconini
+        birthDate:
+          type: string
+          description: Fecha de nacimiento.
+          format: date-time
+        countryResidence:
+          type: string
+          description: country_residence
+          example: Bolivia
+        mail:
+          type: string
+          description: mail
+          example: marcelo.escalera.inf@gmail.com
+      description: Respuesta de solicitud para crear autor.
