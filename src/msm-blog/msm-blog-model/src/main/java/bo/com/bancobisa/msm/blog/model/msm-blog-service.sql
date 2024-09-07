@@ -35,8 +35,8 @@ CREATE TABLE blog_history (
 
 CREATE TABLE blog (
     id BIGINT IDENTITY NOT NULL,
-    titulo VARCHAR(200),
-    tema VARCHAR(200),
+    title VARCHAR(200),
+    thema VARCHAR(200),
     content VARCHAR(200),
     periodicity VARCHAR(200),
     allow_comments BIT,

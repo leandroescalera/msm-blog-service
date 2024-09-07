@@ -6,20 +6,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * @author leandro.escalera
  */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-@Schema(description = "Respuesta de solicitud para crear autor.")
-public class CreateAuthorResponse implements Serializable {
+@Schema(description = "Respuesta de una solicitud para crear comentarios en una publicacion.")
+public class CreateCommentResponse  implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Schema(description = "Identificador unico", example = "1")
@@ -28,19 +27,22 @@ public class CreateAuthorResponse implements Serializable {
   @Schema(description = "Nombres del Autor", example = "Leandro Marcelo")
   private String names;
 
-  @Schema(description = "Nombres del Autor", example = "Escalera")
-  private String firstSurname;
-
-  @Schema(description = "second_surname", example = "Alconini")
-  private String secondSurname;
-
-  @Schema(description = "Fecha de nacimiento.", example = "08/10/1991")
-  private Date birthDate;
+  @Schema(description = "mail", example = "marcelo.escalera.inf@gmail.com")
+  private String mail;
 
   @Schema(description = "country_residence", example = "Bolivia")
   private String countryResidence;
 
-  @Schema(description = "mail", example = "marcelo.escalera.inf@gmail.com")
-  private String mail;
+  @Schema(description = "Contenido de la publicacion.", example = "Este mi primera publicacoin ........")
+  private String content;
+
+  @Schema(description = "Puntaje de la publicacion del blog.", example = "10")
+  private String score;
+
+  @Schema(description = "Fecha de creacion de la publicacion.", example = "08/10/1991")
+  private Date creationDate;
+
+  @Schema(description = "Identificador unico", example = "1")
+  private Long blogId;
 
 }

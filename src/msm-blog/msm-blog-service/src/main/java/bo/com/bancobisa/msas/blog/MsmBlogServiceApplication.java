@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"bo.com.bancofie"})
+@ComponentScan(basePackages = {"bo.com.bancobisa"})
 public class MsmBlogServiceApplication {
 
 	public static void main(String[] args) {

@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.test.skip>true</maven.test.skip>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -28,15 +30,41 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>bo.com.bancofie.common</groupId>
+			<artifactId>msa-common-logger</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>bo.com.bancobisa</groupId>
 			<artifactId>msm-blog-api</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
+			<groupId>bo.com.bancofie.common</groupId>
+			<artifactId>msa-common-config</artifactId>
+			<version>1.1.0-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>bo.com.bancofie.common</groupId>
+			<artifactId>msa-common-persist</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.15</version> <!-- O la última versión disponible -->
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -63,3 +91,4 @@
 	</repositories>
 
 </project>
+

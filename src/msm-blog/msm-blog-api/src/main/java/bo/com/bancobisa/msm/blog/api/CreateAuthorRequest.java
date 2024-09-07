@@ -1,17 +1,18 @@
 package bo.com.bancobisa.msm.blog.api;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.swing.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
+
 
 /**
  * @author leandro.escalera
@@ -41,8 +42,9 @@ public class CreateAuthorRequest implements Serializable {
   @Schema(description = "second_surname", example = "Alconini")
   private String secondSurname;
 
-  @Schema(description = "birth_date", example = "08/10/1991")
-  private String birthDate;
+  @Schema(description = "Fecha de nacimiento", example = "08/10/1991")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+  private LocalDate birthDate;
 
   @NotBlank
   @Pattern(regexp = "^[a-zA-ZÀ-ÿ\\s]+$", message = "El pais de residencia solo puede contener letras y espacios")

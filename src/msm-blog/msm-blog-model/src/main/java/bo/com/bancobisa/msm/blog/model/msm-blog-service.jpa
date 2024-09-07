@@ -63,18 +63,18 @@
         </nq>
         <table name="author"/>
     </entity>
-    <entity compositePrimaryKeyClass="BlogEntityPK" abs="false" class="BlogEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568285300930">
+    <entity compositePrimaryKeyClass="BlogEntityPK" abs="false" class="BlogEntity" v="true" gen="false" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568285300930">
         <ath>leandro.escalera</ath>
         <attributes>
-            <basic attribute-type="String" v="true" xvt="" name="titulo" id="_172568292572533">
+            <basic attribute-type="String" v="true" xvt="" name="title" id="_172568292572533">
                 <xwm/>
                 <xm/>
-                <column name="titulo" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
+                <column name="title" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
             </basic>
-            <basic attribute-type="String" v="true" xvt="" name="tema" id="_172568292666234">
+            <basic attribute-type="String" v="true" xvt="" name="theme" id="_172568292666234">
                 <xwm/>
                 <xm/>
-                <column name="tema" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
+                <column name="theme" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
             </basic>
             <basic attribute-type="String" v="true" xvt="" name="content" id="_172568292715035">
                 <xwm/>
@@ -101,7 +101,7 @@
                 <xm/>
                 <column name="update_date" unique="false" nullable="true" insertable="true" updatable="true"/>
             </basic>
-            <many-to-one optional="true" primaryKey="false" connected-entity-id="_17256819916453" v="true" xvt="" name="authorId" pname="authorId" id="_172568334190956">
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_17256819916453" v="true" xvt="" name="authorId" id="_172568334190956">
                 <xwm/>
                 <xm/>
                 <join-column name="AUTHOR_ID" rc="" unique="false" nullable="true" insertable="true" updatable="true" column-definition="" table=""/>
@@ -116,11 +116,11 @@
         <nq e="false" name="BlogEntity.findAll">
             <query>Select e from BlogEntity e</query>
         </nq>
-        <nq e="false" name="BlogEntity.findByTitulo">
-            <query>Select b from BlogEntity b where b.titulo=:titulo</query>
+        <nq e="false" name="BlogEntity.findByTitle">
+            <query>Select b from BlogEntity b where b.title=:title</query>
         </nq>
-        <nq e="false" name="BlogEntity.findByTema">
-            <query>Select b from BlogEntity b where b.tema=:tema</query>
+        <nq e="false" name="BlogEntity.findByTheme">
+            <query>Select b from BlogEntity b where b.theme=:theme</query>
         </nq>
         <nq e="false" name="BlogEntity.findByContent">
             <query>Select b from BlogEntity b where b.content=:content</query>
@@ -142,7 +142,7 @@
         </nq>
         <table name="blog"/>
     </entity>
-    <entity compositePrimaryKeyClass="CommentEntityPK" abs="false" class="CommentEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568342822357">
+    <entity compositePrimaryKeyClass="CommentEntityPK" abs="false" class="CommentEntity" v="true" gen="false" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568342822357">
         <ath>leandro.escalera</ath>
         <attributes>
             <basic attribute-type="String" v="true" xvt="" name="names" id="_172568358431460">
@@ -210,7 +210,7 @@
         </nq>
         <table name="comment"/>
     </entity>
-    <entity compositePrimaryKeyClass="BlogHistoryEntityPK" abs="false" class="BlogHistoryEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568393794668">
+    <entity compositePrimaryKeyClass="BlogHistoryEntityPK" abs="false" class="BlogHistoryEntity" v="true" gen="false" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568393794668">
         <ath>leandro.escalera</ath>
         <attributes>
             <basic attribute-type="String" v="true" xvt="" name="contentAbove" id="_172568400968171">

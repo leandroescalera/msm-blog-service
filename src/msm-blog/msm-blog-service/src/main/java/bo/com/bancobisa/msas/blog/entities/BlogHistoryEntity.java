@@ -1,8 +1,6 @@
 package bo.com.bancobisa.msas.blog.entities;
 
 
-import lombok.Data;
-
 import java.sql.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.Data;
+
 
 /**
  * @author leandro.escalera

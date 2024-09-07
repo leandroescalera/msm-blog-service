@@ -9,11 +9,29 @@ import org.springframework.http.ResponseEntity;
  */public interface IBlogApi {
 
   /**
-   * Obtain a token of access
+   * Let create a new author
    *
    * @param request CreateAuthorRequest
    * @return CreateAuthorResponse
    * @throws CustomException on any Exception
    */
   ResponseEntity<BaseResponse<CreateAuthorResponse>> createAuthor(CreateAuthorRequest request) throws CustomException;
+
+  /**
+   * Let create a new blog
+   *
+   * @param request CreateBlogRequest
+   * @return CreateBlogResponse
+   * @throws CustomException on any Exception
+   */
+  ResponseEntity<BaseResponse<CreateBlogResponse>> createBlog(CreateBlogRequest request) throws CustomException;
+
+  /**
+   * Let create a new comment
+   *
+   * @param request CreateCommentRequest
+   * @return CreateCommentResponse
+   * @throws CustomException on any Exception
+   */
+  ResponseEntity<BaseResponse<CreateCommentResponse>> createComment(CreateCommentRequest request) throws CustomException;
 }

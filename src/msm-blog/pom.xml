@@ -7,8 +7,8 @@
   <packaging>pom</packaging>
   <modules>
     <module>msm-blog-api</module>
-    <module>msm-blog-service</module>
     <module>msm-blog-model</module>
+    <module>msm-blog-service</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -1,6 +1,5 @@
 package bo.com.bancobisa.msas.blog.entities;
 
-
 import lombok.Data;
 
 import java.sql.Date;
@@ -13,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
 
 /**
  * @author leandro.escalera
@@ -27,11 +28,11 @@ public class BlogEntity {
   @Column(name = "id")
   private Long id;
   @Basic
-  @Column(name = "titulo", length = 200)
-  private String titulo;
+  @Column(name = "title", length = 200)
+  private String title;
   @Basic
-  @Column(name = "tema", length = 200)
-  private String tema;
+  @Column(name = "thema", length = 200)
+  private String theme;
   @Basic
   @Column(name = "content", length = 200)
   private String content;

@@ -1,8 +1,6 @@
 package bo.com.bancobisa.msas.blog.controller;
 
-import bo.com.bancobisa.msm.blog.api.CreateAuthorRequest;
-import bo.com.bancobisa.msm.blog.api.CreateAuthorResponse;
-import bo.com.bancobisa.msm.blog.api.IBlogApi;
+import bo.com.bancobisa.msm.blog.api.*;
 import bo.com.bancofie.msas.common.config.CustomException;
 import bo.com.bancofie.msas.common.data.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @author leandro.escalera
@@ -26,15 +22,27 @@ import java.util.List;
 @Log
 @RestController
 @RequestMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-@Tag(name = "Blog Service", description = "Servicio que realiza la gestion de un portal de blogs.")
 public class BlogController {
 
   @Autowired
   private IBlogApi api;
 
   @PostMapping("/createAuthor")
-  @Operation(summary = "Crea autores", description = "Este endpoint permite crear autores.", tags = {"Autor"})
+  @Operation(summary = "Crea autores.", description = "Este endpoint permite crear autores.", tags = {"Autor"})
   public ResponseEntity<BaseResponse<CreateAuthorResponse>> createAuthor(@RequestBody @Valid CreateAuthorRequest request) throws CustomException {
     return api.createAuthor(request);
   }
+
+  @PostMapping("/createBlog")
+  @Operation(summary = "Crea blogs.", description = "Este endpoint permite crear blogs.", tags = {"Blog"})
+  public ResponseEntity<BaseResponse<CreateBlogResponse>> createBlog(@RequestBody @Valid CreateBlogRequest request) throws CustomException {
+    return api.createBlog(request);
+  }
+
+  @PostMapping("/createComment")
+  @Operation(summary = "Crea comentario.", description = "Este endpoint permite crear comentarios a publicaciones de autores.", tags = {"Blog"})
+  public ResponseEntity<BaseResponse<CreateCommentResponse>> createComment(@RequestBody @Valid CreateCommentRequest request) throws CustomException {
+    return api.createComment(request);
+  }
+
 }

@@ -1,8 +1,5 @@
 package bo.com.bancobisa.msas.blog.entities;
 
-
-import lombok.Data;
-
 import java.sql.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,10 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  * @author leandro.escalera
  */
-@Data
 @Entity
 @Table(name = "author")
 public class AuthorEntity {
@@ -42,5 +39,61 @@ public class AuthorEntity {
   @Basic
   @Column(name = "mail", length = 250)
   private String mail;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getNames() {
+    return names;
+  }
+
+  public void setNames(String names) {
+    this.names = names;
+  }
+
+  public String getFirstSurname() {
+    return firstSurname;
+  }
+
+  public void setFirstSurname(String firstSurname) {
+    this.firstSurname = firstSurname;
+  }
+
+  public String getSecondSurname() {
+    return secondSurname;
+  }
+
+  public void setSecondSurname(String secondSurname) {
+    this.secondSurname = secondSurname;
+  }
+
+  public Date getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(Date birthDate) {
+    this.birthDate = birthDate;
+  }
+
+  public String getCountryResidence() {
+    return countryResidence;
+  }
+
+  public void setCountryResidence(String countryResidence) {
+    this.countryResidence = countryResidence;
+  }
+
+  public String getMail() {
+    return mail;
+  }
+
+  public void setMail(String mail) {
+    this.mail = mail;
+  }
 
 }
