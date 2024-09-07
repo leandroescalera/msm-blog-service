@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MICROSERVICE" ppkg="bo.com.bancobisa.msas.blog" epkg="entities" v="6.1.0" rws="_17256818542312" Pws="_17256818542312" cws="_17256818542312" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_17256818542311" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity compositePrimaryKeyClass="AuthorEntityPK" abs="false" class="AuthorEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_17256819916453">
+        <ath>leandro.escalera</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="names" id="_172568213873418">
+                <xwm/>
+                <xm/>
+                <column name="names_" unique="false" nullable="true" insertable="true" updatable="true" length="150"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="firstSurname" id="_172568216175519">
+                <xwm/>
+                <xm/>
+                <column name="first_surname" unique="false" nullable="true" insertable="true" updatable="true" length="150"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="secondSurname" id="_172568216289920">
+                <xwm/>
+                <xm/>
+                <column name="second_surname" unique="false" nullable="true" insertable="true" updatable="true" length="150"/>
+            </basic>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="birthDate" id="_172568216356021">
+                <xwm/>
+                <xm/>
+                <column name="birth_date" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="countryResidence" id="_172568216416322">
+                <xwm/>
+                <xm/>
+                <column name="country_residence" unique="false" nullable="true" insertable="true" updatable="true" length="100"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="mail" id="_172568216811323">
+                <xwm/>
+                <xm/>
+                <column name="mail" unique="false" nullable="true" insertable="true" updatable="true" length="250"/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_17256819917314">
+                <xwm/>
+                <xm/>
+                <column name="id" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+        <nq e="false" name="AuthorEntity.findAll">
+            <query>Select e from AuthorEntity e</query>
+        </nq>
+        <nq e="false" name="AuthorEntity.findByNames">
+            <query>Select a from AuthorEntity a where a.names=:names</query>
+        </nq>
+        <nq e="false" name="AuthorEntity.findByFirstSurname">
+            <query>Select a from AuthorEntity a where a.firstSurname=:firstSurname</query>
+        </nq>
+        <nq e="false" name="AuthorEntity.findBySecondSurname">
+            <query>Select a from AuthorEntity a where a.secondSurname=:secondSurname</query>
+        </nq>
+        <nq e="false" name="AuthorEntity.findByBirthDate">
+            <query>Select a from AuthorEntity a where a.birthDate=:birthDate</query>
+        </nq>
+        <nq e="false" name="AuthorEntity.findByCountryResidence">
+            <query>Select a from AuthorEntity a where a.countryResidence=:countryResidence</query>
+        </nq>
+        <nq e="false" name="AuthorEntity.findByMail">
+            <query>Select a from AuthorEntity a where a.mail=:mail</query>
+        </nq>
+        <table name="author"/>
+    </entity>
+    <entity compositePrimaryKeyClass="BlogEntityPK" abs="false" class="BlogEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568285300930">
+        <ath>leandro.escalera</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="titulo" id="_172568292572533">
+                <xwm/>
+                <xm/>
+                <column name="titulo" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="tema" id="_172568292666234">
+                <xwm/>
+                <xm/>
+                <column name="tema" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="content" id="_172568292715035">
+                <xwm/>
+                <xm/>
+                <column name="content" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="periodicity" id="_172568292754536">
+                <xwm/>
+                <xm/>
+                <column name="periodicity" unique="false" nullable="true" insertable="true" updatable="true" length="200"/>
+            </basic>
+            <basic attribute-type="Boolean" v="true" xvt="" name="allowComments" id="_172568292797637">
+                <xwm/>
+                <xm/>
+                <column name="allow_comments" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="creationDate" id="_172568292835338">
+                <xwm/>
+                <xm/>
+                <column name="creation_date" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="updateDate" id="_172568292878539">
+                <xwm/>
+                <xm/>
+                <column name="update_date" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_17256819916453" v="true" xvt="" name="authorId" pname="authorId" id="_172568334190956">
+                <xwm/>
+                <xm/>
+                <join-column name="AUTHOR_ID" rc="" unique="false" nullable="true" insertable="true" updatable="true" column-definition="" table=""/>
+            </many-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_172568285300931">
+                <xwm/>
+                <xm/>
+                <column name="id" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+        <nq e="false" name="BlogEntity.findAll">
+            <query>Select e from BlogEntity e</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByTitulo">
+            <query>Select b from BlogEntity b where b.titulo=:titulo</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByTema">
+            <query>Select b from BlogEntity b where b.tema=:tema</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByContent">
+            <query>Select b from BlogEntity b where b.content=:content</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByPeriodicity">
+            <query>Select b from BlogEntity b where b.periodicity=:periodicity</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByAllowComments">
+            <query>Select b from BlogEntity b where b.allowComments=:allowComments</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByCreationDate">
+            <query>Select b from BlogEntity b where b.creationDate=:creationDate</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByUpdateDate">
+            <query>Select b from BlogEntity b where b.updateDate=:updateDate</query>
+        </nq>
+        <nq e="false" name="BlogEntity.findByAttribute7">
+            <query>Select b from BlogEntity b where b.attribute7=:attribute7</query>
+        </nq>
+        <table name="blog"/>
+    </entity>
+    <entity compositePrimaryKeyClass="CommentEntityPK" abs="false" class="CommentEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568342822357">
+        <ath>leandro.escalera</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="names" id="_172568358431460">
+                <xwm/>
+                <xm/>
+                <column name="names_" unique="false" nullable="true" insertable="true" updatable="true" length="150"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="mail" id="_172568358513761">
+                <xwm/>
+                <xm/>
+                <column name="mail" unique="false" nullable="true" insertable="true" updatable="true" length="250"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="countryResidence" id="_172568358567162">
+                <xwm/>
+                <xm/>
+                <column name="country_residence" unique="false" nullable="true" insertable="true" updatable="true" length="100"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="content" id="_172568358648863">
+                <xwm/>
+                <xm/>
+                <column name="content" unique="false" nullable="true" insertable="true" updatable="true" length="250"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="score" id="_172568358774264">
+                <xwm/>
+                <xm/>
+                <column name="score" unique="false" nullable="true" insertable="true" updatable="true" length="50"/>
+            </basic>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="creationDate" id="_172568358830165">
+                <xwm/>
+                <xm/>
+                <column name="creation_date" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_172568285300930" v="true" xvt="" name="blogId" id="_172568388225067">
+                <xwm/>
+                <xm/>
+                <join-column name="BLOG_ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_172568342822458">
+                <xwm/>
+                <xm/>
+                <column name="id" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+        <nq e="false" name="CommentEntity.findAll">
+            <query>Select e from CommentEntity e</query>
+        </nq>
+        <nq e="false" name="CommentEntity.findByNames">
+            <query>Select c from CommentEntity c where c.names=:names</query>
+        </nq>
+        <nq e="false" name="CommentEntity.findByMail">
+            <query>Select c from CommentEntity c where c.mail=:mail</query>
+        </nq>
+        <nq e="false" name="CommentEntity.findByCountryResidence">
+            <query>Select c from CommentEntity c where c.countryResidence=:countryResidence</query>
+        </nq>
+        <nq e="false" name="CommentEntity.findByContent">
+            <query>Select c from CommentEntity c where c.content=:content</query>
+        </nq>
+        <nq e="false" name="CommentEntity.findByScore">
+            <query>Select c from CommentEntity c where c.score=:score</query>
+        </nq>
+        <nq e="false" name="CommentEntity.findByCreationDate">
+            <query>Select c from CommentEntity c where c.creationDate=:creationDate</query>
+        </nq>
+        <table name="comment"/>
+    </entity>
+    <entity compositePrimaryKeyClass="BlogHistoryEntityPK" abs="false" class="BlogHistoryEntity" v="true" jbn="false" xre="false" m="false" rootElement="_17256818542311" id="_172568393794668">
+        <ath>leandro.escalera</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="contentAbove" id="_172568400968171">
+                <xwm/>
+                <xm/>
+                <column name="content_above" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="updateDate" id="_172568401010072">
+                <xwm/>
+                <xm/>
+                <column name="update_date" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="allowComments" id="_172568401049973">
+                <xwm/>
+                <xm/>
+                <column name="allow_comments" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_172568285300930" v="true" xvt="" name="blogId" id="_172568417550675">
+                <xwm/>
+                <xm/>
+                <join-column name="BLOG_ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_17256819916453" v="true" xvt="" name="authorId" id="_172568420354677">
+                <xwm/>
+                <xm/>
+                <join-column name="AUTHOR_ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_172568393794669">
+                <xwm/>
+                <xm/>
+                <column name="id" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+        <nq e="false" name="BlogHistoryEntity.findAll">
+            <query>Select e from BlogHistoryEntity e</query>
+        </nq>
+        <nq e="false" name="BlogHistoryEntity.findByContentAbove">
+            <query>Select b from BlogHistoryEntity b where b.contentAbove=:contentAbove</query>
+        </nq>
+        <nq e="false" name="BlogHistoryEntity.findByUpdateDate">
+            <query>Select b from BlogHistoryEntity b where b.updateDate=:updateDate</query>
+        </nq>
+        <nq e="false" name="BlogHistoryEntity.findByAllowComments">
+            <query>Select b from BlogHistoryEntity b where b.allowComments=:allowComments</query>
+        </nq>
+        <table name="blog_history"/>
+    </entity>
+    <c/>
+    <wsl>
+        <ws n="Main" id="_17256818542312">
+            <i ref="_172568393794668" x="456" y="559"/>
+            <i ref="_172568285300930" x="456" y="185"/>
+            <i ref="_172568342822357" x="697" y="185"/>
+            <i ref="_17256819916453" x="200" y="185"/>
+        </ws>
+    </wsl>
+</entity-mappings>
