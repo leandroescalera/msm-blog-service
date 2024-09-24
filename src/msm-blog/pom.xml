@@ -13,10 +13,4 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <repositories>
-    <repository>
-      <id>maven-central</id>
-      <url>http://proofdesa.bancofielab.com.bo:9006/repository/maven-public/</url>
-    </repository>
-  </repositories>
 </project>

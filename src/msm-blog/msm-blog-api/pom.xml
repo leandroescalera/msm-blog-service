@@ -3,23 +3,26 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>bo.com.bancobisa</groupId>
   <artifactId>msm-blog-api</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>msm-blog-api</name>
   <description>MSM Onboarding Customer Api</description>
+
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
   <dependencies>
-    <dependency>
-      <groupId>bo.com.bancofie.common</groupId>
-      <artifactId>msa-common-config</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>bo.com.bancofie.common</groupId>-->
+<!--      <artifactId>msa-common-config</artifactId>-->
+<!--      <version>1.1.0-SNAPSHOT</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -32,7 +35,31 @@
       <version>2.0.2</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>2.2.8</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.13.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.3.12</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -63,19 +90,4 @@
       </plugin>
     </plugins>
   </build>
-  
-  <repositories>
-    <repository>
-      <id>maven-central</id>
-      <url>http://proofdesa.bancofielab.com.bo:9006/repository/maven-public/</url>
-    </repository>
-  </repositories>
-  
-  <distributionManagement>
-    <snapshotRepository>
-      <id>nexus-snapshots</id>
-      <url>http://proofdesa.bancofielab.com.bo:9006/repository/maven-snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-  
 </project>

@@ -1,7 +1,5 @@
 package bo.com.bancobisa.msm.blog.api;
 
-import bo.com.bancofie.msas.common.config.CustomException;
-import bo.com.bancofie.msas.common.data.BaseResponse;
 import org.springframework.http.ResponseEntity;
 
 /**

@@ -1,10 +1,7 @@
 package bo.com.bancobisa.msas.blog.controller;
 
 import bo.com.bancobisa.msm.blog.api.*;
-import bo.com.bancofie.msas.common.config.CustomException;
-import bo.com.bancofie.msas.common.data.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
