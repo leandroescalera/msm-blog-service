@@ -126,11 +126,11 @@
 		{
 			"name": "04 updateBlog",
 			"request": {
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 5,\r\n    \"title\": \"aaaaaaaaa.\",\r\n    \"theme\": \"Cómo superar el miedo al éxito\",\r\n    \"content\": \"Este es el contenido completo del blog. Puede contener cualquier tipo de carácter, incluso saltos de línea, signos de puntuación y más.\",\r\n    \"periodicity\": \"MENSUAL\",\r\n    \"allowComments\": true,\r\n    \"creationDate\": \"08/10/1991 15:30:45\",\r\n    \"updateDate\": \"08/10/1991 15:30:45\"\r\n}\r\n",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"aaaaaaaaa.\",\r\n    \"theme\": \"Cómo superar el miedo al éxito\",\r\n    \"content\": \"Este es el contenido completo del blog. Puede contener cualquier tipo de carácter, incluso saltos de línea, signos de puntuación y más.\",\r\n    \"periodicity\": \"MENSUAL\",\r\n    \"allowComments\": true,\r\n    \"creationDate\": \"08/10/1991 15:30:45\",\r\n    \"updateDate\": \"08/10/1991 15:30:45\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
