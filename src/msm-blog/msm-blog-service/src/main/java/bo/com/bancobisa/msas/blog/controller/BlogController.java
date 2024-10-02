@@ -6,10 +6,7 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -42,7 +39,7 @@ public class BlogController {
     return api.createComment(request);
   }
 
-  @PostMapping("/updateBlog")
+  @PutMapping("/updateBlog")
   @Operation(summary = "Actualizar blogs.", description = "Este endpoint permite actualizar blogs.", tags = {"Blog"})
   public ResponseEntity<BaseResponse<UpdateBlogResponse>> updateBlog(@RequestBody @Valid UpdateBlogRequest request) throws CustomException {
     return api.updateBlog(request);
