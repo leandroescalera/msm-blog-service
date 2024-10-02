@@ -37,7 +37,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"names\": \"Francis Alberto\",\r\n    \"firstSurname\" : \"Mendoza\",\r\n    \"secondSurname\" : \"Tinini\",\r\n    \"birthDate\" : \"07/12/1980\",\r\n    \"countryResidence\" : \"Bolivia\",\r\n    \"mail\": \"francisco.mendoza@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"names\": \"Jhobany Aliaga\",\r\n    \"firstSurname\" : \"Escobar\",\r\n    \"secondSurname\" : \"Tinini\",\r\n    \"birthDate\" : \"07/12/1980\",\r\n    \"countryResidence\" : \"Bolivia\",\r\n    \"mail\": \"francisco.mendoza@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,7 +68,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authorId\": 1,\r\n    \"title\": \"1RA Publicacion del autor.\",\r\n    \"theme\": \"Cómo Perder el Miedo al Éxito\",\r\n    \"content\": \"Este es el contenido de la publicación del blog. Aquí puedes agregar detalles, explicaciones y cualquier información relevante sobre el tema.\",\r\n    \"periodicity\": \"DIARIA\",\r\n    \"allowComments\": true,\r\n    \"creationDate\": \"07/09/2024 14:45:30\",\r\n    \"updateDate\": \"07/09/2024 15:00:00\"\r\n}\r\n",
+					"raw": "{\r\n    \"authorId\": 1,\r\n    \"title\": \"5ta Publicacion del autor.\",\r\n    \"theme\": \"Cómo Perder el Miedo al Éxito\",\r\n    \"content\": \"Este es el contenido de la publicación del blog. Aquí puedes agregar detalles, explicaciones y cualquier información relevante sobre el tema.\",\r\n    \"periodicity\": \"DIARIA\",\r\n    \"allowComments\": true,\r\n    \"creationDate\": \"07/09/2024 14:45:30\",\r\n    \"updateDate\": \"07/09/2024 15:00:00\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,7 +99,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"names\": \"Juan Perez\",\r\n    \"mail\": \"juan.perez@gmail.com\",\r\n    \"countryResidence\": \"Bolivia\",\r\n    \"content\": \"Este es un contenido de ejemplo para el blog.\",\r\n    \"score\": \"8\",\r\n    \"creationDate\": \"07/09/2024\",\r\n    \"blogId\": 2\r\n}\r\n",
+					"raw": "{\r\n    \"names\": \"Esteban Perez\",\r\n    \"mail\": \"juan.perez@gmail.com\",\r\n    \"countryResidence\": \"Bolivia\",\r\n    \"content\": \"Este es un contenido de ejemplo para el blog.\",\r\n    \"score\": \"10\",\r\n    \"creationDate\": \"07/09/2024\",\r\n    \"blogId\": 6\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,7 +130,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Mi primera publicacion con actualizacion.\",\r\n    \"theme\": \"Cómo superar el miedo al éxito\",\r\n    \"content\": \"Este es el contenido completo del blog. Puede contener cualquier tipo de carácter, incluso saltos de línea, signos de puntuación y más.\",\r\n    \"periodicity\": \"MENSUAL\",\r\n    \"allowComments\": false,\r\n    \"creationDate\": \"08/10/1991 15:30:45\",\r\n    \"updateDate\": \"08/10/1991 15:30:45\"\r\n}\r\n",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"title\": \"aaaaaaaaa.\",\r\n    \"theme\": \"Cómo superar el miedo al éxito\",\r\n    \"content\": \"Este es el contenido completo del blog. Puede contener cualquier tipo de carácter, incluso saltos de línea, signos de puntuación y más.\",\r\n    \"periodicity\": \"MENSUAL\",\r\n    \"allowComments\": true,\r\n    \"creationDate\": \"08/10/1991 15:30:45\",\r\n    \"updateDate\": \"08/10/1991 15:30:45\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -161,7 +161,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 0\r\n}\r\n",
+					"raw": "{\r\n    \"id\": 1\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
